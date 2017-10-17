@@ -1,10 +1,10 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
     
     def new
         @user = User.new
     end
     
-    def create_user_from_scratch
+    def create
         @user = User.new(user_params)
         if @user.save
             session[:user_id] = @user.id
@@ -12,6 +12,10 @@ class UserController < ApplicationController
         else
             flash.now[:notice] = "Please try again."
         end
+    end
+    
+    def show
+        @user = User.find(params[:id])
     end
     
     private

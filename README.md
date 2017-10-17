@@ -1,24 +1,10 @@
-# README
+#README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+For server
+rails s -b $IP -p $PORT
 
-Things you may want to cover:
+For directions to start up new workspace
+http://blog.thefirehoseproject.com/posts/setting-up-a-cloud9-development-environment/
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+For restarting postgresql
+sudo service restart postgresql
