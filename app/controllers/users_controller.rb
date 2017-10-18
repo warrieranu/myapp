@@ -10,6 +10,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user.id)
         else
+            @user = User.new
             flash.now[:notice] = "Please try again."
         end
     end

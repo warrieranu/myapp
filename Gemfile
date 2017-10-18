@@ -38,6 +38,8 @@ gem 'jquery-rails'
 # For omni-auth
 gem 'omniauth-facebook'
 gem 'figaro'
+# For Stripe API
+gem 'stripe'
 
 
 group :development, :test do
