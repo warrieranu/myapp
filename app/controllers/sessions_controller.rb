@@ -24,12 +24,6 @@ class SessionsController < ApplicationController
         redirect_to root_url, notice: "SIGNED IN"
     end
     
-    
-    # def destroy
-    #     log_out if logged_in?
-    #     redirect_to root_url
-    # end
-    
     def destroy
         session[:user_id] = nil
         session[:omniauth] = nil

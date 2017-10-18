@@ -40,7 +40,9 @@
           <div class="modal-content">
             <div class="modal-header">
               <h1>Sign up</h1>
-              <%= link_to "auth/facebook" do %><%= image_tag(facebook-login.png) %><% end %>
+              <%= link_to 'auth/facebook/callback' do %>
+                <%= image_tag('facebook-login.png') %>
+              <% end %>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
