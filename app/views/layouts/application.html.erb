@@ -24,7 +24,9 @@
       <a class="navbar-nav mr-auto navbar-brand" href="/">Test Me: Super Easy FCE</a>
       <% if current_user %>
       <ul class="nav justify-content-end">
+      <li class="nav-item"><button class="btn" type="button"><%= link_to "Dashboard", user_path(current_user.id) %></button></li>
       <li class="nav-item"><button class="btn" type="button"><%= link_to "Log out", session_path(current_user), :method=>:delete, :class=>:destroy %></button></li>
+
       </ul>
       <% else %>
       <ul class="nav justify-content-end">
