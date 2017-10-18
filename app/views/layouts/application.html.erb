@@ -3,6 +3,7 @@
   <head>
     <title>Myapp</title>
      <!-- Required meta tags -->
+    <%= csrf_meta_tags %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -14,17 +15,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">Test Me: Super Easy FCE</a>
-      <button class="btn" type="button" data-toggle="modal" data-target="#popUpLogIn">Log in</button>
-      <button class="btn btn-outline-success" data-toggle="modal" data-target="#popUpSignUp" type="button">Sign up for FREE</button>
+      <a class="navbar-nav mr-auto navbar-brand" href="/">Test Me: Super Easy FCE</a>
+      <% if current_user %>
+      <ul class="nav justify-content-end">
+      <li class="nav-item"><button class="btn" type="button"><%= link_to "Log out", session_path(current_user), :method=>:delete, :class=>:destroy %></button></li>
+      </ul>
+      <% else %>
+      <ul class="nav justify-content-end">
+      <li class="nav-item"><button id = "log_in_button" class="btn btn-lg" type="button" data-toggle="modal" data-target="#popUpLogIn">Log in</button></li>
+      <li class="nav-item"><button id = "sign_in_button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#popUpSignUp" type="button">Sign up for FREE</button></li>
+      </ul>
+      <% end %>
     </nav>
-    
     
       <!-- Sign in modal -->
       <div class="modal fade" id="popUpSignUp">
@@ -32,6 +40,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h1>Sign up</h1>
+              <%= link_to "auth/facebook" do %><%= image_tag(facebook-login.png) %><% end %>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
@@ -75,7 +84,7 @@
             <div class="modal-body">
               <div class="form-group">
                 <% provide(:title, 'Log in') %>
-                <%= form_for(@user) do |f| %>
+                <%= form_for(:session, url: sessions_path) do |f| %>
                   <%= f.label :email, "Email" %>
                   <%= f.email_field :email, class: "form-control"%>
           
