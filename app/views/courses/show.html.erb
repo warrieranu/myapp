@@ -1,0 +1,320 @@
+<%= render :partial => "pages/navbar" %>
+
+<html><head><style type="text/css">.turbolinks-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 9999;
+  transition: width 300ms ease-out, opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}</style>
+    
+     <!-- Required meta tags -->
+    
+
+    
+    
+    
+     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" media="screen" href="/assets/application.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1">
+    <script src="/assets/rails-ujs.self-817d9a8cb641f7125060cb18fefada3f35339170767c4e003105f92d4c204e39.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/turbolinks.self-1d1fddf91adc38ac2045c51f0a3e05ca97d07d24d15a4dcbf705009106489e69.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/action_cable.self-69fddfcddf4fdef9828648f9330d6ce108b93b82b0b8d3affffc59a114853451.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/cable.self-8484513823f404ed0c0f039f75243bfdede7af7919dda65f2e66391252443ce9.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/courses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/user.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/application.self-eba3cb53a585a0960ade5a8cb94253892706bb20e3f12097a13463b1f12a4528.js?body=1" data-turbolinks-track="reload"></script>
+  <title>Myapp</title><meta name="csrf-param" content="authenticity_token"><meta name="csrf-token" content="G68Ewtk1Rj0FBGwU+1haLadrJ7pPt5sCDRbjQ9oLDFe6oPjed3TXbJGWtGClbNYZLuRHpHesPCxJL/RgO9494Q=="><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></head>
+
+  <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-nav mr-auto navbar-brand" href="/">Test Me: Super Easy FCE</a>
+      <ul class="nav justify-content-end">
+      <li class="nav-item"><button class="btn" type="button"><a href="/users/1">Dashboard</a></button></li>
+      <li class="nav-item"><button class="btn" type="button"><a class="destroy" rel="nofollow" data-method="delete" href="/sessions/1">Log out</a></button></li>
+
+      </ul>
+    </nav>
+    
+      <!-- Sign in modal -->
+      <div class="modal fade" id="popUpSignUp">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1>Sign up</h1>
+              <a href="auth/facebook">
+                <img src="/assets/facebook-login-e998b55d7d821ba819897132537e42149cee923ea215a5eaf0e2a6335efe6c67.png" alt="Facebook login">
+</a>              <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <form action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="i1BFPJYdvOQkj4vwof5dQINa8ecW6g50gfpd7BreD1JuXzacfeyer9jFtSSL4C3j1ZYpTG/XVIA7Q3HQuB9y0w==">
+                  <label for="user_name">Your Name</label>
+                  <input class="form-control" type="text" name="user[name]" id="user_name">
+                  
+                  <label for="user_email">Email</label>
+                  <input class="form-control" type="email" name="user[email]" id="user_email">
+                            
+                  <label for="user_password">Password</label>
+                  <input class="form-control" type="password" name="user[password]" id="user_password">
+                            
+                  <label for="user_password_confirmation">Confirm Password</label>
+                  <input type="password" class="form-control" name="user[password_confirmation]" id="user_password_confirmation">
+                            
+                  <input type="submit" name="commit" value="Create my FREE account!" class="form-control btn btn-primary" data-disable-with="Create my FREE account!">
+</form>              </div>
+            </div>
+            <div class="modal-footer">
+              <div>
+                <p>Already have an account?</p><br><br>
+              </div>
+              <a href="#popUpLogIn" data-toggle="modal" data-dismiss="modal">Log in</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Log in modal -->
+      <div class="modal fade" id="popUpLogIn">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1>Log in</h1>
+              <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <form action="/sessions" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="opN7s7/qn/upZpe6R/M1kdGS68gK50MH1fh9cwKW2dqeAwtiRHChsjz4VVIUPZSYYrpLLXaGPtJ0MxliVnsVpg==">
+                  <label for="session_email">Email</label>
+                  <input class="form-control" type="email" name="session[email]" id="session_email">
+          
+                  <label for="session_password">Password</label>
+                  <input class="form-control" type="password" name="session[password]" id="session_password">
+          
+                  <input type="submit" name="commit" value="Log in" class="form-control btn btn-primary" data-disable-with="Log in">
+</form>              </div>
+            </div>
+            <div class="modal-footer">
+              <p>Don't have an account yet? Sign up for FREE!</p>
+              <a href="#popUpLogIn" data-toggle="modal" data-dismiss="modal">Sign up</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-sm-4 col-md-4 hidden-xs-down bg-faded sidebar">
+        <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Reports</a>
+            </li>
+            <li class="nav-item">
+                 <a class="nav-link" href="#">Analytics</a>
+            </li>
+            <li class="nav-item">
+                 <a class="nav-link" href="#">Export</a>
+            </li>
+         </ul>
+
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Nav item</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Nav item again</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">One more nav</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Another nav item</a>
+            </li>
+          </ul>
+
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Nav item again</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">One more nav</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Another nav item</a>
+            </li>
+          </ul>
+        </nav>
+
+        <main class="col-sm-8 offset-sm-2 col-md-109offset-md-2 pt-3">
+          <h1>Dashboard</h1>
+
+          <section class="row text-center placeholders">
+            <div class="col-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <div class="text-muted">Something else</div>
+            </div>
+            <div class="col-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+          </section>
+
+          <h2>Section title</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1,001</td>
+                  <td>Lorem</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,002</td>
+                  <td>amet</td>
+                  <td>consectetur</td>
+                  <td>adipiscing</td>
+                  <td>elit</td>
+                </tr>
+                <tr>
+                  <td>1,003</td>
+                  <td>Integer</td>
+                  <td>nec</td>
+                  <td>odio</td>
+                  <td>Praesent</td>
+                </tr>
+                <tr>
+                  <td>1,003</td>
+                  <td>libero</td>
+                  <td>Sed</td>
+                  <td>cursus</td>
+                  <td>ante</td>
+                </tr>
+                <tr>
+                  <td>1,004</td>
+                  <td>dapibus</td>
+                  <td>diam</td>
+                  <td>Sed</td>
+                  <td>nisi</td>
+                </tr>
+                <tr>
+                  <td>1,005</td>
+                  <td>Nulla</td>
+                  <td>quis</td>
+                  <td>sem</td>
+                  <td>at</td>
+                </tr>
+                <tr>
+                  <td>1,006</td>
+                  <td>nibh</td>
+                  <td>elementum</td>
+                  <td>imperdiet</td>
+                  <td>Duis</td>
+                </tr>
+                <tr>
+                  <td>1,007</td>
+                  <td>sagittis</td>
+                  <td>ipsum</td>
+                  <td>Praesent</td>
+                  <td>mauris</td>
+                </tr>
+                <tr>
+                  <td>1,008</td>
+                  <td>Fusce</td>
+                  <td>nec</td>
+                  <td>tellus</td>
+                  <td>sed</td>
+                </tr>
+                <tr>
+                  <td>1,009</td>
+                  <td>augue</td>
+                  <td>semper</td>
+                  <td>porta</td>
+                  <td>Mauris</td>
+                </tr>
+                <tr>
+                  <td>1,010</td>
+                  <td>massa</td>
+                  <td>Vestibulum</td>
+                  <td>lacinia</td>
+                  <td>arcu</td>
+                </tr>
+                <tr>
+                  <td>1,011</td>
+                  <td>eget</td>
+                  <td>nulla</td>
+                  <td>Class</td>
+                  <td>aptent</td>
+                </tr>
+                <tr>
+                  <td>1,012</td>
+                  <td>taciti</td>
+                  <td>sociosqu</td>
+                  <td>ad</td>
+                  <td>litora</td>
+                </tr>
+                <tr>
+                  <td>1,013</td>
+                  <td>torquent</td>
+                  <td>per</td>
+                  <td>conubia</td>
+                  <td>nostra</td>
+                </tr>
+                <tr>
+                  <td>1,014</td>
+                  <td>per</td>
+                  <td>inceptos</td>
+                  <td>himenaeos</td>
+                  <td>Curabitur</td>
+                </tr>
+                <tr>
+                  <td>1,015</td>
+                  <td>sodales</td>
+                  <td>ligula</td>
+                  <td>in</td>
+                  <td>libero</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
