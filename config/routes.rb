@@ -2,7 +2,7 @@ Rails.application.routes.draw do
     root 'pages#index'
     resources :users
     resources :sessions
-    resources :courses, only:[:show]
+    resources :courses, only:[:show, :index]
     
     get 'auth/:provider/callback' => 'sessions#create_omni_session'
     get 'auth/failure' => redirect('/')
