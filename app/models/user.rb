@@ -10,6 +10,10 @@ class User < ApplicationRecord
     has_many :course_enrollments
     has_many :courses, through: :course_enrollments
     
+    def self.sign_in_from_omniauth(auth)
+        find_by(provider: auth['provider'], uid: auth['uid'] || create_user_from_omniauth)
+    end
+    
     def create_user_from_omniauth(auth)
         create(
             provider: auth['provider'],
@@ -24,10 +28,6 @@ class User < ApplicationRecord
             else
                 redirect_to root_url
             end
-    end
-    
-    def self.sign_in_from_omniauth(auth)
-        find_by(provider: auth['provider'], uid: auth['uid'] || create_user_from_omniauth)
     end
         
 end
