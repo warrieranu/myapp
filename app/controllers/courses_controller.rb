@@ -1,10 +1,14 @@
 class CoursesController < ApplicationController
     def index
         @courses = Course.all
-        @products = Product.filter(params(:starts_with))
+        if params[:search].present?
+            @courses = ((@courses.search(params[:search]))+(@courses.search_one(params[:search]))).uniq {|x| x.id}
+        end
+        
     end
     
-    def show_all
+    def show
         @course = Course.find(params[:id])
     end
+    
 end
